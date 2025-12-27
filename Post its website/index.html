@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Post-it Archive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: monospace;
+      background: rgb(242, 237, 223);
+      color: #424242;
+    }
+
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 3fr 1fr;
+      gap: 40px;
+    }
+
+    /* LEFT TEXT */
+    .left-text {
+      position: sticky;
+      top: 40px; /* stays visible while scrolling */
+      padding-left: 200px;
+      align-self: start;
+      transform-origin: bottom;
+      /* transform: rotate(-90deg); */
+      rotate: -90deg;
+      text-align: justify;
+      /*text-indent: 4ch;*/ 
+    }
+
+    .left-text h1 {
+      font-style: normal;
+      /*font-weight: bold;*/
+      font-size: 100px;
+      margin-bottom: 16px;
+      color: #1d0cff;
+
+     }
+
+    .left-text p {
+      font-style: normal;
+      font-size: 16px;
+      line-height: 1.2;
+      color:#1d0cff
+    }
+
+    /* CENTER LINES */
+    .lines-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+
+    .line-row {
+      position: relative;
+      height: 14px;
+    }
+  .line-row:hover .line {
+    background: transparent;
+    border: 1px solid #000;
+  }
+    .line {
+      position: absolute;
+      top: 100px;
+      left: -200px;
+      width: 150%;
+      height: 11px; /* thickness of the line */
+      background: black ;
+      transform: translateY(-50%);
+    }
+
+    .hover-square {
+      position: absolute;
+      top: 50%;
+      left: 90%;
+      width: 200px;
+      height: 200px;
+      background: white;
+      border: 1px solid #000;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: +1;
+    }
+
+    .line-row:hover .hover-square {
+      opacity: 1;
+      pointer-events: auto; /* allow interactions with the square when visible */
+    }
+
+    /* Placeholder for your future post-it image */
+    .hover-square img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* RIGHT DATES (container styles) */
+    .dates {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+      position: relative;
+    }
+
+    .date-slot {
+      height: 14px;
+      font-style: italic;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* DATE THAT APPEARS ONLY ON HOVER NEXT TO THE POST-IT */
+    .hover-date {
+      position: absolute;
+      /* top: 50%; */
+      left: calc(120%); /* calc(50% + 50px + 16px); /* next to the square inside the center column */
+      transform: translateY(-50%);
+      font-style: italic;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .line-row:hover .hover-date {
+      opacity: 1;
+      transform: translateY(-50%) translateX(6px);
+    }
+
+    
+    
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- LEFT SIDE TEXT -->
+    <div class="left-text">
+      <h1>Documenting Until Death</h1>
+      <p>
+       Collecting is a part of who I am as an individual. What you see here is a 
+       collection of Post Its that I've written and collected in the past 3 years 
+       of university.The first documented date is "13 Nov 2023". The last one is
+       "11.12.2025". I saved these sticky notes because I was afraid I would forget
+       who I was and who I will be. I cling to every bit of paper that could bring
+       me back to who I am as a person. The action of writing a post it note, peeling
+       it off and then just being able to move it around or discard yourself of it is
+       almost a ritualistic part. It is satisfyingly tactile. It is a good way to
+       document everyday life.
+       I will always document.
+
+      </p>
+      <p>
+        Until death.
+      </p>
+    </div>
+
+    <!-- CENTER LINES (72 LINES) -->
+    <div class="lines-wrapper" id="lines">
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/1.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/2.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/3.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/4.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/5.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/6 date.jpg" alt="">
+        </div>
+        <div class="hover-date">13th Thursday</div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/7.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/8.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/9.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/10.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/11.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/12.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/13.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/14.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/15 date.jpg" alt="">
+        </div>
+        <div class="hover-date">22 november</div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/16 date.jpg" alt="">
+        </div>
+        <div class="hover-date">20 december</div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/17 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 17 November </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/18.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/19.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/20.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/21.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/22.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/23.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/24.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/25 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 6.6.2024 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/26 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 07.06.2024 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/27 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 08.06.2024 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/28.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/29.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/30.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/31.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/32.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/33.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/34.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/35.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/36 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 28.11.2024 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/37.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/38.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/39.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/40 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 13 april 2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/41.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/42.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/43 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 25th June </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/44.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/45.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/46.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/47 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 21.09.2025 </div>
+      </div>
+      
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/48.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/49.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/50.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/51.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/52 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 24.09.2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/53.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/54.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/55.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/56 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 21.10.2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/57.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/58.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/59.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/60.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/61 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 12.11.2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/62 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 16.11.2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/63.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/64.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/65.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/66.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/67.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/68.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/69 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 01.12.2025 </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/70.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/71 date.jpg" alt="">
+        </div>
+        <div class="hover-date"> 11.12.2025 </div>
+      </div>
+
+       <div class="line-row">
+        <div class="line"></div>
+        <div class="hover-square">
+          <img src="postits/72.jpg" alt="">
+        </div>
+      
+    </div>
+
+    
+</body>
+</html>
